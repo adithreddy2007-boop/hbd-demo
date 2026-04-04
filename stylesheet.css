@@ -1,0 +1,331 @@
+/* ═══════════════════════════════════════════════════════════════
+   stylesheet.css — Birthday Page Styles
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── BODY ──────────────────────────────────────────────────── */
+body {
+  background-color: #000;
+  transition: background-color linear 5s;
+  overflow-x: hidden;
+}
+.container { display: none; }
+
+.peach       { background-color: #FFDAB9; }
+.peach-after { animation: peach_alive linear 8s infinite; }
+@keyframes peach_alive {
+  0%,100% { background-color: #FFDAB9; }
+  25%     { background-color: #FFE4B5; }
+  75%     { background-color: #FFEFD5; }
+}
+
+/* ── AUDIO (hidden) ─────────────────────────────────────────── */
+audio { display: none; }
+
+/* ── BULBS ──────────────────────────────────────────────────── */
+.bulb {
+  width: 50px; height: 50px;
+  margin: auto;
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-size: 50px 50px;
+}
+.bulb-holder { height: 70px; }
+
+.bulb-glow-yellow { background-image: url('image/bulb_yellow.png'); animation: bulb_glow_yellow linear 5s; }
+.bulb-glow-red    { background-image: url('image/bulb_red.png');    animation: bulb_glow_red    linear 5s; }
+.bulb-glow-blue   { background-image: url('image/bulb_blue.png');   animation: bulb_glow_blue   linear 5s; }
+.bulb-glow-green  { background-image: url('image/bulb_green.png');  animation: bulb_glow_green  linear 5s; }
+.bulb-glow-pink   { background-image: url('image/bulb_pink.png');   animation: bulb_glow_pink   linear 5s; }
+.bulb-glow-orange { background-image: url('image/bulb_orange.png'); animation: bulb_glow_orange linear 5s; }
+
+@keyframes bulb_glow_yellow { 0%{background-image:url('image/bulb.png');opacity:0} 100%{background-image:url('image/bulb_yellow.png');opacity:1} }
+@keyframes bulb_glow_red    { 0%{background-image:url('image/bulb.png');opacity:0} 100%{background-image:url('image/bulb_red.png');opacity:1} }
+@keyframes bulb_glow_blue   { 0%{background-image:url('image/bulb.png');opacity:0} 100%{background-image:url('image/bulb_blue.png');opacity:1} }
+@keyframes bulb_glow_green  { 0%{background-image:url('image/bulb.png');opacity:0} 100%{background-image:url('image/bulb_green.png');opacity:1} }
+@keyframes bulb_glow_pink   { 0%{background-image:url('image/bulb.png');opacity:0} 100%{background-image:url('image/bulb_pink.png');opacity:1} }
+@keyframes bulb_glow_orange { 0%{background-image:url('image/bulb.png');opacity:0} 100%{background-image:url('image/bulb_orange.png');opacity:1} }
+
+.bulb-glow-yellow-after { background-image:url('image/bulb_yellow.png'); animation: bulb_pulse_yellow linear 1.0s infinite; }
+.bulb-glow-red-after    { background-image:url('image/bulb_red.png');    animation: bulb_pulse_red    linear 1.2s infinite; }
+.bulb-glow-blue-after   { background-image:url('image/bulb_blue.png');   animation: bulb_pulse_blue   linear 1.4s infinite; }
+.bulb-glow-green-after  { background-image:url('image/bulb_green.png');  animation: bulb_pulse_green  linear 1.8s infinite; }
+.bulb-glow-pink-after   { background-image:url('image/bulb_pink.png');   animation: bulb_pulse_pink   linear 2.0s infinite; }
+.bulb-glow-orange-after { background-image:url('image/bulb_orange.png'); animation: bulb_pulse_orange linear 2.2s infinite; }
+
+@keyframes bulb_pulse_yellow { 0%,100%{background-image:url('image/bulb.png')} 50%{background-image:url('image/bulb_yellow.png')} }
+@keyframes bulb_pulse_red    { 0%,100%{background-image:url('image/bulb.png')} 50%{background-image:url('image/bulb_red.png')} }
+@keyframes bulb_pulse_blue   { 0%,100%{background-image:url('image/bulb.png')} 50%{background-image:url('image/bulb_blue.png')} }
+@keyframes bulb_pulse_green  { 0%,100%{background-image:url('image/bulb.png')} 50%{background-image:url('image/bulb_green.png')} }
+@keyframes bulb_pulse_pink   { 0%,100%{background-image:url('image/bulb.png')} 50%{background-image:url('image/bulb_pink.png')} }
+@keyframes bulb_pulse_orange { 0%,100%{background-image:url('image/bulb.png')} 50%{background-image:url('image/bulb_orange.png')} }
+
+/* ── BANNER ─────────────────────────────────────────────────── */
+.bannar {
+  max-width: 100%;
+  transform: translate(0, -500px);
+}
+.bannar-come {
+  animation: bannar_come linear 6s;
+  transform: translate(0, 0);
+}
+@keyframes bannar_come {
+  0%   { transform: translate(0, -1000px); }
+  33%  { transform: rotate(10deg); }
+  66%  { transform: rotate(-10deg); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ── BALLOONS — 8 only (HBDADITH) ──────────────────────────── */
+.balloons {
+  position: fixed;
+  bottom: -200px;
+  transform: translateY(85px) !important;
+  left: -500px;
+  opacity: 0.6;
+  z-index: 99;
+  width: 100px; height: 183px;
+  background-repeat: no-repeat;
+  background-size: 100px 183px;
+}
+.balloons h2 {
+  text-transform: uppercase;
+  font-family: 'Signika', sans-serif;
+  font-size: 50px;
+  text-shadow: 5px 5px 5px #FFF;
+  display: none;
+}
+#b1,#b11 { background-image: url('image/b1.png'); }
+#b2,#b22 { background-image: url('image/b2.png'); }
+#b3,#b33 { background-image: url('image/b3.png'); }
+#b4,#b44 { background-image: url('image/b4.png'); }
+#b5,#b55 { background-image: url('image/b5.png'); }
+#b6,#b66 { background-image: url('image/b6.png'); }
+#b7,#b77 { background-image: url('image/b7.png'); }
+#b8,#b88 { background-image: url('image/b8.png'); }
+
+.balloons-rotate-behaviour-one {
+  animation: balloons_rotate_one linear 10s infinite;
+  transform: rotate(30deg);
+}
+@keyframes balloons_rotate_one {
+  0%,100% { transform: rotate(30deg); }
+  50%     { transform: rotate(-30deg); }
+}
+.balloons-rotate-behaviour-two {
+  animation: balloons_rotate_two linear 10s infinite;
+  transform: rotate(-20deg);
+}
+@keyframes balloons_rotate_two {
+  0%,100% { transform: rotate(-20deg); }
+  50%     { transform: rotate(20deg); }
+}
+.balloon-border {
+  position: fixed;
+  top: 130%;
+  opacity: 0.5;
+  z-index: 9999;
+}
+
+/* ── BUTTONS ────────────────────────────────────────────────────
+   Move bar UP/DOWN:    .navbar-fixed-bottom { bottom: Xpx }
+   Move bar LEFT/RIGHT: .navbar .row { margin-left: Xpx }
+   Button spacing:      .btn-primary { margin: Xpx }
+   Button size:         .btn-primary { padding: Xpx Xpx }      */
+#play, #bannar_coming, #balloons_flying,
+#cake_fadein, #light_candle, #wish_message, #story {
+  display: none;
+}
+.btn-primary {
+  border-color: #466baf;
+  padding: 10px 14px;
+  margin: 3px;
+  text-transform: uppercase;
+  font-family: 'Signika', sans-serif;
+  font-weight: 700;
+  color: #fff;
+  background-color: #466baf;
+  border-radius: 6px;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active { border-color: #fff; color: #fff; background-color: #466baf; }
+
+.navbar.navbar-fixed-bottom {
+  bottom: 0px;   /* ← increase to move buttons UP */
+  padding: 10px 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+}
+
+/* ── CAKE SECTION ───────────────────────────────────────────────
+   Move cake UP/DOWN:    .cake-cover  { margin-top: Xpx }
+   Move cake LEFT/RIGHT: .cake-wrapper{ margin-left: Xpx }      */
+.cake-cover {
+  margin-top: 10px;   /* ← cake UP / DOWN */
+}
+.cake-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-left: 100px;     /* ← cake LEFT / RIGHT (pos=right, neg=left) */
+}
+
+/* Suppress legacy CSS cake shapes — SVG handles all visuals */
+.cake {
+  display: none;
+  position: relative;
+  width: 200px !important;
+  height: 500px !important;
+}
+.cake::after,
+.cake::before { content: none !important; display: none !important; }
+
+/* CAKE FALLS FROM TOP
+   JS sets transform:translateY(-150vh) BEFORE showing cake,
+   then adds .cake-fall which animates it down with a bounce.
+   Duration: 1.2s — increase to slow the fall.               */
+.cake-fall {
+  animation: cakeFallBounce 1.2s cubic-bezier(0.22, 1.36, 0.58, 1) forwards;
+}
+@keyframes cakeFallBounce {
+  from { transform: translateY(-150vh); }
+  72%  { transform: translateY(20px);  }   /* slight overshoot */
+  86%  { transform: translateY(-8px);  }   /* bounce back up */
+  to   { transform: translateY(0);     }   /* settle */
+}
+
+/* ── CANDLE (velas) ─────────────────────────────────────────────
+   The SVG cake top frosting sits at ~411px from top of .cake div.
+   Candle height is 35px, so top lands at 411-35 = 376px.
+   Move L/R: change margin-left below (neg=left, pos=right)       */
+.cake .velas {
+  background: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  top: -120px;         /* starts above the cake, off screen */
+  left: 50%;
+  margin-left: -2.5px; 
+  width: 5px;
+  height: 35px;
+  z-index: 20;
+  opacity: 0;
+}
+.cake .velas::after,
+.cake .velas::before {
+  background: rgba(255,0,0,0.45);
+  content: "";
+  position: absolute;
+  width: 100%; height: 2px;
+}
+.cake .velas::after  { top: 25%; }
+.cake .velas::before { top: 45%; }
+
+/* Candle drops onto cake top */
+.cake .velas.dropping {
+  animation: candleDrop 0.85s cubic-bezier(0.22, 1.36, 0.58, 1) forwards;
+}
+@keyframes candleDrop {
+  from { top: -120px; }
+  72%  { top: 390px; }   /* overshoot below landing */
+  86%  { top: 368px; }   /* bounce back up */
+  to   { top: 400px; }   /* sits on top of cake frosting */
+}
+
+/* Flame elements — cake.less sets .fuego{display:none} so override with !important */
+.cake .fuego {
+  display: block !important;
+  border-radius: 100%;
+  position: absolute;
+  top: -15px; left: 50%;
+  margin-left: -3px;
+  width: 5px; height: 12px;  /* bigger so flame is clearly visible */
+  opacity: 0;
+  background: transparent;
+}
+/* Lit state: fully visible yellow flame */
+.cake .velas.lit .fuego {
+  display: block !important;
+  opacity: 1;
+  background: rgba(254,248,97,0.95);
+  box-shadow: 0 0 12px 6px rgba(255,190,30,0.7);
+}
+.cake .velas.lit .fuego:nth-child(1) { animation: flameFlicker 2.0s         infinite; }
+.cake .velas.lit .fuego:nth-child(2) { animation: flameFlicker 1.5s 0.15s   infinite; }
+.cake .velas.lit .fuego:nth-child(3) { animation: flameFlicker 1.0s 0.30s   infinite; }
+.cake .velas.lit .fuego:nth-child(4) { animation: flameFlicker 0.5s 0.10s   infinite; }
+.cake .velas.lit .fuego:nth-child(5) { animation: flameFlicker 0.2s 0.05s   infinite; }
+@keyframes flameFlicker {
+  0%,100% {
+    background: rgba(254,248,97,0.95);
+    box-shadow: 0 0 14px 5px rgba(255,190,30,0.6);
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    background: rgba(255,80,0,0.25);
+    box-shadow: 0 0 22px 8px rgba(255,80,0,0.2);
+    transform: scale(0.35) translateY(-14px);
+  }
+}
+
+/* ── FULL-PAGE MESSAGE BOX ──────────────────────────────────────
+   Box is a fixed sheet — children start visibility:hidden in HTML
+   so the box is always full-size. Text types in one by one.     */
+#message-page {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  z-index: 99998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.message-page-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+.message-box-full {
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  border: 3px solid #F2B300;
+  box-shadow: 0 0 60px rgba(242,179,0,0.4), 0 20px 60px rgba(0,0,0,0.5);
+  padding: 50px 70px;
+  max-width: 740px;
+  width: 92%;
+  text-align: center;
+  /* Fixed sheet — never resizes while text types in */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.message-box-full h3 {
+  font-family: 'Signika', sans-serif;
+  font-size: 24px;
+  color: #F2B300;
+  margin: 0 0 22px;
+  letter-spacing: 2px;
+}
+.message-box-full p {
+  font-family: 'Signika', sans-serif;
+  font-size: 17px;
+  color: #333;
+  line-height: 1.9;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.message-box-full p strong { color: #D14D39; }
+.message-box-full h2 {
+  font-family: 'Signika', sans-serif;
+  font-size: 24px;
+  color: #D14D39;
+  margin-top: 22px 0 0;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 600px) {
+  .message-box-full { padding: 30px 20px; }
+  .message-box-full p  { font-size: 14px; }
+  .message-box-full h2 { font-size: 18px; }
