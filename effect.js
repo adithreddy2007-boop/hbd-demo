@@ -124,7 +124,7 @@ $('document').ready(function () {
     // Reset candle state
     $('.velas').removeClass('dropping lit').css({ top: '-120px', opacity: 0 });
 
-    // Position wrapper far above the viewport BEFORE .cake is shown
+    // Position ONLY the inner wrapper above viewport — outer stays fixed+centered
     $('.cake-wrapper').removeClass('cake-fall').css('transform', 'translateY(-150vh)');
 
     // Show cake (still off-screen above)
@@ -185,7 +185,7 @@ $('document').ready(function () {
     });
 
     // Align under the banner — shifted slightly left to centre under decoration image
-    var targetTop = bannerLineY();
+    var targetTop = bannerLineY() + 80 - 85;
     var offsets   = [-390,-290,-190,-90,10,110,210,310];
     ['b11','b22','b33','b44','b55','b66','b77','b88'].forEach(function(id, i){
       $('#'+id).animate({ top: targetTop, left: vw + offsets[i] }, 600);
