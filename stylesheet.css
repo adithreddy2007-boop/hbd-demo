@@ -79,7 +79,7 @@ audio { display: none; }
 .balloons {
   position: fixed;
   bottom: -200px;
-  transform: translateY(85px) !important;
+  transform: translateY(85px);
   left: -500px;
   opacity: 0.6;
   z-index: 99;
@@ -105,23 +105,23 @@ audio { display: none; }
 
 .balloons-rotate-behaviour-one {
   animation: balloons_rotate_one linear 10s infinite;
-  transform: rotate(30deg);
+  transform: translateY(85px) rotate(30deg);
 }
 @keyframes balloons_rotate_one {
-  0%,100% { transform: rotate(30deg); }
-  50%     { transform: rotate(-30deg); }
+  0%,100% { transform: translateY(85px) rotate(30deg); }
+  50%     { transform: translateY(85px) rotate(-30deg); }
 }
 .balloons-rotate-behaviour-two {
   animation: balloons_rotate_two linear 10s infinite;
-  transform: rotate(-20deg);
+  transform: translateY(85px) rotate(-20deg);
 }
 @keyframes balloons_rotate_two {
-  0%,100% { transform: rotate(-20deg); }
-  50%     { transform: rotate(20deg); }
+  0%,100% { transform: translateY(85px) rotate(-20deg); }
+  50%     { transform: translateY(85px) rotate(20deg); }
 }
 .balloon-border {
   position: fixed;
-  top: 130%;
+  top: 100%;
   opacity: 0.5;
   z-index: 9999;
 }
@@ -158,15 +158,15 @@ audio { display: none; }
 }
 
 /* ── CAKE SECTION ───────────────────────────────────────────────
-   Move cake UP/DOWN:    .cake-cover  { margin-top: Xpx }
-   Move cake LEFT/RIGHT: .cake-wrapper{ margin-left: Xpx }      */
+   Move cake UP/DOWN    → .cake-cover  { margin-top }
+   Move cake LEFT/RIGHT → .cake-wrapper{ margin-left }          */
 .cake-cover {
-  margin-top: 10px;   /* ← cake UP / DOWN */
+  margin-top: 10px;
 }
 .cake-wrapper {
   display: inline-block;
   position: relative;
-  margin-left: 100px;     /* ← cake LEFT / RIGHT (pos=right, neg=left) */
+  margin-left: 100px;
 }
 
 /* Suppress legacy CSS cake shapes — SVG handles all visuals */
@@ -180,17 +180,18 @@ audio { display: none; }
 .cake::before { content: none !important; display: none !important; }
 
 /* CAKE FALLS FROM TOP
-   JS sets transform:translateY(-150vh) BEFORE showing cake,
-   then adds .cake-fall which animates it down with a bounce.
-   Duration: 1.2s — increase to slow the fall.               */
+   JS sets transform:translateY(-150vh) on .cake-wrapper,
+   then adds .cake-fall to animate it down with a bounce.
+   The wrapper is already fixed+centered via left:calc(50%-100px)
+   so translateY never conflicts with any X centering.          */
 .cake-fall {
   animation: cakeFallBounce 1.2s cubic-bezier(0.22, 1.36, 0.58, 1) forwards;
 }
 @keyframes cakeFallBounce {
   from { transform: translateY(-150vh); }
-  72%  { transform: translateY(20px);  }   /* slight overshoot */
-  86%  { transform: translateY(-8px);  }   /* bounce back up */
-  to   { transform: translateY(0);     }   /* settle */
+  72%  { transform: translateY(20px);  }
+  86%  { transform: translateY(-8px);  }
+  to   { transform: translateY(0);     }
 }
 
 /* ── CANDLE (velas) ─────────────────────────────────────────────
@@ -203,7 +204,7 @@ audio { display: none; }
   position: absolute;
   top: -120px;         /* starts above the cake, off screen */
   left: 50%;
-  margin-left: -2.5px; 
+  margin-left: -2.5px;
   width: 5px;
   height: 35px;
   z-index: 20;
@@ -235,9 +236,9 @@ audio { display: none; }
   display: block !important;
   border-radius: 100%;
   position: absolute;
-  top: -15px; left: 50%;
+  top: -20px; left: 50%;
   margin-left: -3px;
-  width: 5px; height: 12px;  /* bigger so flame is clearly visible */
+  width: 5px; height: 17px;  /* bigger so flame is clearly visible */
   opacity: 0;
   background: transparent;
 }
@@ -329,3 +330,4 @@ audio { display: none; }
   .message-box-full { padding: 30px 20px; }
   .message-box-full p  { font-size: 14px; }
   .message-box-full h2 { font-size: 18px; }
+}
